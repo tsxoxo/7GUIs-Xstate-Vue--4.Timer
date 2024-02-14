@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Counter from './Counter.vue'
+import Timer from './Timer.vue'
 </script>
 
 <template>
-  <Counter />
+  <Timer />
 </template>

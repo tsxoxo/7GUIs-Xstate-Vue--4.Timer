@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMachine } from '@xstate/vue'
-import { timerMachine } from './counterMachine';
+import { timerMachine } from './timerMachine';
 import { createBrowserInspector } from '@statelyai/inspect';
 
 const { inspect } = createBrowserInspector({
