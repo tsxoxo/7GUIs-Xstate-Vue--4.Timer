@@ -26,7 +26,7 @@ export const timerMachine = setup({
 }).createMachine({
   "context": {
     "elapsed": 0,
-    "duration": 60
+    "duration": 30
   },
   "id": "7GUIs_4_Timer",
   "initial": "running",
@@ -36,6 +36,10 @@ export const timerMachine = setup({
         "input": {},
         "src": "ticker",
         "id": "ticker"
+      },
+      "always": {
+        guard: ({ context }) => context.elapsed >= context.duration,
+        target: 'stopped'
       },
       "on": {
         "TICK": [
@@ -52,7 +56,12 @@ export const timerMachine = setup({
         ]
       }
     },
-    "stopped": {}
+    "stopped": {
+      always: {
+        guard: ({ context }) => context.elapsed < context.duration,
+        target: 'running'
+      }
+    }
   },
   "on": {
     "RESET": {
@@ -62,17 +71,10 @@ export const timerMachine = setup({
         elapsed: 0
       })
     },
-    "CHANGE_DURATION": [
-      {
-        "target": ".running",
-        guard: ({ context }) => context.duration > context.elapsed,
-        actions: assign({
-          duration: ({ event }) => event.value
-        })
-      },
-      {
-        "target": ".stopped"
-      }
-    ]
+    "CHANGE_DURATION": {
+      actions: assign({
+        duration: ({ event }) => event.value
+      })
+    },
   }
 })

@@ -12,13 +12,24 @@ const { snapshot, send } = useMachine(timerMachine, {
   inspect
 })
 </script>
-
+<!-- #TODO 
+* changing duration stops the ticker? (keep clicked)
+-->
 <template>
   <div class="frame center-children">
     <main>
-      <p>{{ snapshot.context.elapsed }}</p>
-      <button @click="send({ type: 'CHANGE_DURATION', value: 3 })">
-      </button>
+      <p id="elapsed">{{ snapshot.context.elapsed }}</p>
+      <div>
+        <input @input="(event) => send({ type: 'CHANGE_DURATION', value: +(event!.target as HTMLInputElement)!.value })"
+          type="range" id="duration" name="duration" min="1" max="120" :value="snapshot.context.duration" />
+        <label for="duration">Duration</label>
+        <p>{{ snapshot.context.duration }} </p>
+      </div>
+      <div id="button-and-label">
+        <button @click="send({ type: 'RESET' })">
+        </button>
+        <p>RESET</p>
+      </div>
     </main>
   </div>
 </template>
@@ -51,7 +62,7 @@ main {
   box-shadow: 0px -6px 2px 0px hsla(72, 25%, 88%, 0.85) inset, 6px 4px 4px 0px rgba(20, 19, 11, 0.25) inset, -6px 4px 4px 0px rgba(20, 19, 11, 0.25) inset;
 }
 
-p {
+#elapsed {
   display: flex;
   width: 140px;
   height: 140px;
