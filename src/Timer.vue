@@ -52,6 +52,13 @@ const progressBarStyle = computed(() => {
   color: white
 }
 
+@font-face {
+  font-family: 'Rationale';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Rationale"), url("../public/rationale.ttf") format('truetype');
+}
+
 :root {
   --background: #1F201B;
   --frame: linear-gradient(180deg, #98A387 0%, #808971 100%);
