@@ -17,7 +17,12 @@ const progressPercentage = computed(() => {
 })
 
 const progressBarStyle = computed(() => {
-  return `linear-gradient(to right, var(--display-text) ${progressPercentage.value}%, transparent ${progressPercentage.value}%), repeating-linear-gradient(to right, var(--display-text), var(--display-text) 4%, transparent 4%, transparent 8%)`
+  return {
+    backgroundImage: `linear-gradient(to right, var(--display-text) ${progressPercentage.value}%, transparent ${progressPercentage.value}%),  repeating-linear-gradient(to right, var(--display-text), var(--display-text) 4%, transparent 4%, transparent 8%)`,
+    backgroundSize: `100 %, 50 % 8px, 10 % 1 %`,
+    backgroundRepeat: `inherit, space no - repeat`,
+    backgroundPosition: `0 % center`
+  }
 })
 </script>
 
@@ -107,10 +112,11 @@ button:active {
   /*alt syntax for the dashed line
   background-image: linear-gradient(to right, transparent 50%, var(--display-bg) 50%), var(--display-text);*/
   /* background-image: linear-gradient(to right, var(--display-text) 10%, transparent 10%), repeating-linear-gradient(to right, var(--display-text), var(--display-text) 4%, transparent 4%, transparent 8%);*/
-  background-image: v-bind('progressBarStyle');
-  background-size: 100%, 50% 8px;
-  background-repeat: repeat-x;
-  background-position: 0% center;
+
+  background-image: v-bind('progressBarStyle.backgroundImage');
+  background-size: v-bind('progressBarStyle.backgroundSize');
+  background-repeat: v-bind('progressBarStyle.backgroundRepeat');
+  background-position: v-bind('progressBarStyle.backgroundPosition');
   /*outline: var(--display-text) 1px solid;*/
   height: 40px;
 }
