@@ -11,7 +11,7 @@
     line-height: 1.5;
     font-weight: 400;
     --color-primary: #40e0d0;
-    --color-bg: #9ca58a;
+    --color-bg: linear-gradient(167.95deg, #afbfa9 0%, #879881 100%);
     --color-dark: #24241b;
     --color-light: #e6e9da;
 
