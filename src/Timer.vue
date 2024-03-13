@@ -18,12 +18,14 @@ const progressPercentage = computed(() => {
 
 const progressBarStyle = computed(() => {
   return {
-    backgroundImage: `linear-gradient(to right, var(--display-text) ${progressPercentage.value}%, transparent ${progressPercentage.value}%),  repeating-linear-gradient(to right, var(--display-text), var(--display-text) 4%, transparent 4%, transparent 8%)`,
-    backgroundSize: `100 %, 50 % 8px, 10 % 1 %`,
-    backgroundRepeat: `inherit, space no - repeat`,
-    backgroundPosition: `0 % center`
+    backgroundImage: `linear-gradient(to right, var(--display-text) ${progressPercentage.value}%, transparent ${progressPercentage.value}%), repeating-linear-gradient(to right, var(--display-text), var(--display-text) 1%, transparent 1%, transparent 2%), linear-gradient(var(--display-text), var(--display-text)), linear-gradient(var(--display-text), var(--display-text)), linear-gradient(var(--display-text), var(--display-text)), linear-gradient(var(--display-text), var(--display-text)), linear-gradient(var(--display-text), var(--display-text))`,
+    backgroundSize: `100%, 5% 4px, 2px 100%, 2px 50%, 2px 50%, 2px 20%, 2px 20%`,
+    backgroundRepeat: `no-repeat, space no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat`,
+    backgroundPosition: `0% center, 0% center, center, 25%, 75%, 0%, 100%`
   }
 })
+
+// , linear-gradient(var(--display - text), var(--display - text))
 </script>
 
 <template>
