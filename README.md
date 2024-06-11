@@ -4,9 +4,11 @@ _4th task of the [7 GUIs](https://eugenkiss.github.io/7guis)._
 
 Made with [Vue](https://vuejs.org/) and [Xstate](https://stately.ai/docs) -- a framework for using finite state machines (FSM).
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/tsxoxo/7GUIs-Xstate-Vue--4.Timer)
+
 ---
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/tsxoxo/7GUIs-Xstate-Vue--4.Timer)
+[Demo of the UI's main features](https://github.com/tsxoxo/7GUIs-Xstate-Vue--4.Timer/assets/59713582/ed254f53-243e-4590-9727-a77cd86c2e0d)
 
 ---
 
